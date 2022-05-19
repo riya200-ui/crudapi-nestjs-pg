@@ -1,0 +1,9 @@
+npm i -g @nestjs/cli
+nest new crudapi
+cd crudapi
+npm run start
+npm run start:dev
+npm i @nestjs/typeorm typeorm pg @nestjs/config
+nest g mo feed
+nest g s feed/services/feed --flat --no-spec
+nest g co feed/controllers/feed --flat --no-spec
