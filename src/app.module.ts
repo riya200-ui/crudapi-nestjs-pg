@@ -7,7 +7,8 @@ import { AppService } from './app.service';
 import { FeedModule } from './feed/feed.module';
 
 @Module({
-  imports: [ConfigModule.forRoot({ isGlobal: true }),
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.POSTGRES_HOST,
@@ -15,11 +16,11 @@ import { FeedModule } from './feed/feed.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
-      
+
       autoLoadEntities: true,
       synchronize: true, // shouldn't be used in production - may lose data
     }),
-     FeedModule,
+    FeedModule,
   ],
   controllers: [AppController],
   providers: [AppService],
